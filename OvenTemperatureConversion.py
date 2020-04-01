@@ -22,9 +22,9 @@ class OvenTemperatureConversion(AliceSkill):
 		# Grab the requested temperature and send it to TempConversion class for converting
 
 		spokenTemperature = session.slotValue('Number')
-		temp1 = TempConversion(spokenTemperature)
-		temp2 = temp1.convertToCelsius()
-		self.endDialog(session.sessionId, self.randomTalk(text='respondCelsius', replace=[temp2]))
+		temperatureToClass = TempConversion(spokenTemperature)
+		celsiusValue = temperatureToClass.convertToCelsius()
+		self.endDialog(session.sessionId, self.randomTalk(text='respondCelsius', replace=[celsiusValue]))
 
 	@IntentHandler('convert2fahrenheit')
 	def c2fIntent(self, session: DialogSession, **_kwargs):
@@ -35,9 +35,9 @@ class OvenTemperatureConversion(AliceSkill):
 
 
 		spokenTemperature = session.slotValue('Number')
-		temp1 = TempConversion(spokenTemperature)
-		temp2 = temp1.convertToFahrenheit()
-		self.endDialog(session.sessionId, self.randomTalk(text='respondFahrenheit', replace=[temp2]))
+		temperatureToClass = TempConversion(spokenTemperature)
+		fahrenheitValue = temperatureToClass.convertToFahrenheit()
+		self.endDialog(session.sessionId, self.randomTalk(text='respondFahrenheit', replace=[fahrenheitValue]))
 
 	@IntentHandler('informGasMark')
 	def gasMarkIntent(self, session: DialogSession, **_kwargs):
