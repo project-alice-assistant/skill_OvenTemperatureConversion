@@ -1,4 +1,3 @@
-
 from core.base.model.AliceSkill import AliceSkill
 from core.dialog.model.DialogSession import DialogSession
 from core.util.Decorators import IntentHandler
@@ -19,7 +18,9 @@ class OvenTemperatureConversion(AliceSkill):
 		if 'Number' not in session.slotsAsObjects:
 			self.endDialog(session.sessionId, self.randomTalk(text='respondNoIdea'))
 			return
-		# Grab the requested temperature and send it to TempConversion for converting
+
+		# Grab the requested temperature and send it to TempConversion class for converting
+
 		spokentemperature = session.slotValue('Number')
 		temp1 = TempConversion(spokentemperature)
 		temp2 = temp1.convert_to_celsius()
@@ -43,6 +44,7 @@ class OvenTemperatureConversion(AliceSkill):
 		if 'Number' not in session.slotsAsObjects:
 			self.endDialog(session.sessionId, self.randomTalk(text='respondNoIdea'))
 			return
+
 		# Spokeninput is the users requested temperature
 		spokeninput = session.slotValue('Number')
 
@@ -120,6 +122,7 @@ class OvenTemperatureConversion(AliceSkill):
 				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
 			else:
 				self.endDialog(session.sessionId, self.randomTalk(text='respondAboveRange'))
+
 
 # Below class is for converting between C and F
 
