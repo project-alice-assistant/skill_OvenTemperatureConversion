@@ -1,0 +1,25 @@
+{
+    "name": "OvenTemperatureConversion",
+    "version": "1.0.3",
+    "icon": "fas fa-temperature-high",
+    "category": "information",
+    "author": "LazzaAU",
+    "maintainers": [
+    	"Psycho",
+    	"Phillipp"
+    	],
+    "desc": "Convert temperature between F and C and also out put the correct oven gas mark",
+    "aliceMinVersion": "1.0.0-b1",
+    "systemRequirements": [
+        ""
+    ],
+    "pipRequirements": [
+        ""
+    ],
+    "conditions": {
+        "lang": [
+            "en"
+        ],
+        "asrArbitraryCapture": true
+    }
+}
