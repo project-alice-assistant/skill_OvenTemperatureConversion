@@ -17,8 +17,8 @@ class OvenTemperatureConversion(AliceSkill):
 			self.endDialog(session.sessionId, self.randomTalk(text='respondNoIdea'))
 			return
 
-		input_temperature = session.slotValue('Number')
-		temp1 = TempConversion(input_temperature)
+		spokentemperature = session.slotValue('Number')
+		temp1 = TempConversion(spokentemperature)
 		temp2 = temp1.convert_to_celsius()
 		self.endDialog(session.sessionId, self.randomTalk(text='respondCelsius', replace=[temp2]))
 
@@ -29,8 +29,8 @@ class OvenTemperatureConversion(AliceSkill):
 			self.endDialog(session.sessionId, self.randomTalk(text='respondNoIdea'))
 			return
 
-		input_temperature = session.slotValue('Number')
-		temp1 = TempConversion(input_temperature)
+		spokentemperature = session.slotValue('Number')
+		temp1 = TempConversion(spokentemperature)
 		temp2 = temp1.convert_to_fahrenheit()
 		self.endDialog(session.sessionId, self.randomTalk(text='respondFahrenheit', replace=[temp2]))
 
@@ -40,93 +40,94 @@ class OvenTemperatureConversion(AliceSkill):
 		if 'Number' not in session.slotsAsObjects:
 			self.endDialog(session.sessionId, self.randomTalk(text='respondNoIdea'))
 			return
-		input_temp = session.slotValue('Number')
+		
+		spokeninput = session.slotValue('Number')
 
 		if 'fahrenheit' not in session.slotsAsObjects:
 
-			if input_temp < 135:
+			if spokeninput < 135:
 				self.endDialog(session.sessionId, self.randomTalk(text='respondOutOfRange'))
-			elif 135 <= input_temp <= 148:
-				correct_gas_mark = 1
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 149 <= input_temp <= 162:
-				correct_gas_mark = 2
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 163 <= input_temp <= 176:
-				correct_gas_mark = 3
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 177 <= input_temp <= 190:
-				correct_gas_mark = 4
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 191 <= input_temp <= 203:
-				correct_gas_mark = 5
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 204 <= input_temp <= 217:
-				correct_gas_mark = 6
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 218 <= input_temp <= 231:
-				correct_gas_mark = 7
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 232 <= input_temp <= 245:
-				correct_gas_mark = 8
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 246 <= input_temp <= 269:
-				correct_gas_mark = 9
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 270 <= input_temp <= 290:
-				correct_gas_mark = 10
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
+			elif 135 <= spokeninput <= 148:
+				_correctGasMark = 1
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 149 <= spokeninput <= 162:
+				_correctGasMark = 2
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 163 <= spokeninput <= 176:
+				_correctGasMark = 3
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 177 <= spokeninput <= 190:
+				_correctGasMark = 4
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 191 <= spokeninput <= 203:
+				_correctGasMark = 5
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 204 <= spokeninput <= 217:
+				_correctGasMark = 6
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 218 <= spokeninput <= 231:
+				_correctGasMark = 7
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 232 <= spokeninput <= 245:
+				_correctGasMark = 8
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 246 <= spokeninput <= 269:
+				_correctGasMark = 9
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 270 <= spokeninput <= 290:
+				_correctGasMark = 10
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
 			else:
 				self.endDialog(session.sessionId, self.randomTalk(text='respondAboveRange'))
 			return
 
 		if 'celsius' not in session.slotsAsObjects:
-			if input_temp < 275:
+			if spokeninput < 275:
 				self.endDialog(session.sessionId, self.randomTalk(text='respondOutOfRange'))
-			elif 275 <= input_temp <= 291:
-				correct_gas_mark = 1
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 300 <= input_temp <= 324:
-				correct_gas_mark = 2
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 325 <= input_temp <= 349:
-				correct_gas_mark = 3
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 350 <= input_temp <= 374:
-				correct_gas_mark = 4
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 375 <= input_temp <= 399:
-				correct_gas_mark = 5
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 400 <= input_temp <= 424:
-				correct_gas_mark = 6
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 425 <= input_temp <= 449:
-				correct_gas_mark = 7
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 450 <= input_temp <= 474:
-				correct_gas_mark = 8
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 475 <= input_temp <= 499:
-				correct_gas_mark = 9
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
-			elif 500 <= input_temp <= 525:
-				correct_gas_mark = 10
-				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correct_gas_mark]))
+			elif 275 <= spokeninput <= 291:
+				_correctGasMark = 1
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 300 <= spokeninput <= 324:
+				_correctGasMark = 2
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 325 <= spokeninput <= 349:
+				_correctGasMark = 3
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 350 <= spokeninput <= 374:
+				_correctGasMark = 4
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 375 <= spokeninput <= 399:
+				_correctGasMark = 5
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 400 <= spokeninput <= 424:
+				_correctGasMark = 6
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 425 <= spokeninput <= 449:
+				_correctGasMark = 7
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 450 <= spokeninput <= 474:
+				_correctGasMark = 8
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 475 <= spokeninput <= 499:
+				_correctGasMark = 9
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
+			elif 500 <= spokeninput <= 525:
+				_correctGasMark = 10
+				self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[_correctGasMark]))
 			else:
 				self.endDialog(session.sessionId, self.randomTalk(text='respondAboveRange'))
 
 
 class TempConversion:
-	requestedTemp = 0
+	# _requested_temp = 0
 
-	def __init__(self, requestedTemp):
-		self.requestedTemp = requestedTemp
+	def __init__(self, requestedtemp):
+		self.requestedtemp = requestedtemp
 
 	def convert_to_fahrenheit(self):
-		result = int((9 * self.requestedTemp) / 5 + 32)
+		result = int((9 * self.requestedtemp) / 5 + 32)
 		return result
 
 	def convert_to_celsius(self):
-		result = int((self.requestedTemp - 32) * 5 / 9)
+		result = int((self.requestedtemp - 32) * 5 / 9)
 		return result
