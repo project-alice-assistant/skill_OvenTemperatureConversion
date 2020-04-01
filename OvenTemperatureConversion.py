@@ -7,16 +7,19 @@ from core.util.Decorators import IntentHandler
 class OvenTemperatureConversion(AliceSkill):
 	"""
 	Author: LazzaAU
-	Description: Convert temperature between F and C and also inform of what oven Gas mark to use
+	Description: Convert temperature between F and C and also inform of what
+	oven Gas mark to use, The first two Intent handlers deal with converting
+	between the two te,perature types C and F
+	The third handler deals with outputting the oven gas Mark to use
 	"""
 
 	@IntentHandler('convert2Celsius')
 	def f2cIntent(self, session: DialogSession, **_kwargs):
-
+		# Check if a temperature number was provided
 		if 'Number' not in session.slotsAsObjects:
 			self.endDialog(session.sessionId, self.randomTalk(text='respondNoIdea'))
 			return
-
+		# Grab the requested temperature and send it to TempConversion for converting
 		spokentemperature = session.slotValue('Number')
 		temp1 = TempConversion(spokentemperature)
 		temp2 = temp1.convert_to_celsius()
@@ -40,9 +43,10 @@ class OvenTemperatureConversion(AliceSkill):
 		if 'Number' not in session.slotsAsObjects:
 			self.endDialog(session.sessionId, self.randomTalk(text='respondNoIdea'))
 			return
-		
+		# Spokeninput is the users requested temperature
 		spokeninput = session.slotValue('Number')
 
+		# todo work out a way to condense the below 72 lines of code ?
 		if 'fahrenheit' not in session.slotsAsObjects:
 
 			if spokeninput < 135:
@@ -117,9 +121,10 @@ class OvenTemperatureConversion(AliceSkill):
 			else:
 				self.endDialog(session.sessionId, self.randomTalk(text='respondAboveRange'))
 
+# Below class is for converting between C and F
+
 
 class TempConversion:
-	# _requested_temp = 0
 
 	def __init__(self, requestedtemp):
 		self.requestedtemp = requestedtemp
