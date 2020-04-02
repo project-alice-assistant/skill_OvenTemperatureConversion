@@ -1,176 +1,176 @@
 {
-    "skill": "OvenTemperatureConversion",
-    "icon": "time",
-    "description": "Convert temperature between F and C and also out the oven gas mark",
-    "slotTypes": [
-    	{
-    		"name": "Celsius",
-    		"matchingStrictness": null,
-    		"automaticallyExtensible": true,
-    		"useSynonyms": true,
-    		"values": [
-    	  		{
-    				"value": "Celsius",
-    				"synonyms": [
-    					"C"
-    			    ]
-    			}
-    		]
-    	},
-	  	{
-    		"name": "Fahrenheit",
-    		"matchingStrictness": null,
-    		"automaticallyExtensible": true,
-    		"useSynonyms": true,
-    		"values": [
-    	  		{
-    				"value": "Fahrenheit",
-    				"synonyms": [
-    					"F"
-    			    ]
-    			}
-    		]
-    	},
-	  	{
-    		"name": "GasMark",
-    		"matchingStrictness": null,
-    		"automaticallyExtensible": true,
-    		"useSynonyms": true,
-    		"values": [
-    	  		{
-    				"value": "Gas",
-    				"synonyms": [
-    					"Gas Mark",
-					  	"gas mark",
-					  	"gas Mark"
-    			    ]
-    			}
-    		]
-    	}
-    ],
-    "intents": [
-    	{
-    		"name": "convert2Celsius",
-    		"description": "Convert F to C",
-    		"enabledByDefault": true,
-    		"utterances": [
-    			"What is {10:=>Number} degrees {fahrenheit:=>fahrenheit} in celsius please",
-    			"Convert {425:=>Number} {fahrenheit:=>fahrenheit} to celsius",
-			  	"Convert {25:=>Number} degrees {fahrenheit:=>fahrenheit}",
-			  	"Convert {97:=>Number} {f:=>fahrenheit}",
-			  	"Convert {81:=>Number} degrees {f:=>fahrenheit} please",
-			  	"Convert {73:=>Number} degrees {F:=>fahrenheit} to C ",
-			  	"Convert {93:=>Number} {f:=>fahrenheit} ",
-			  	"Convert {108:=>Number} {f:=>fahrenheit} to celsius",
-			  	"Convert {73:=>Number} {f:=>fahrenheit} to c",
-    			"What's {350:=>Number} {fahrenheit:=>fahrenheit} in celsius",
-    			"Please convert {280:=>Number} degrees {fahrenheit:=>fahrenheit} into celsius",
-    			"{30:=>Number} {fahrenheit:=>fahrenheit} is what in celsius",
-    			"what is {170:=>Number} degrees {fahrenheit:=>fahrenheit} in celsius please",
-			  	"What is {250:=>Number} degrees {F:=>fahrenheit} in C",
-    			"if it's {99:=>Number} degrees {fahrenheit:=>fahrenheit} outside what is that in celsius"
-    		],
-    		"slots": [
-    			{
-    		  		"name": "fahrenheit",
-    		  		"description": null,
-    		  		"required": false,
-    		  		"type": "Fahrenheit",
-    		  		"missingQuestion": ""
-    			},
-			  	{
-    		  		"name": "Number",
-    		  		"description": null,
-    		  		"required": false,
-    		  		"type": "snips/number",
-    		  		"missingQuestion": ""
-    			}
+	"skill": "OvenTemperatureConversion",
+	"icon": "time",
+	"description": "Convert temperature between F and C and also out the oven gas mark",
+	"slotTypes": [
+		{
+			"name": "Celsius",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "Celsius",
+					"synonyms": [
+						"C"
+					]
+				}
 			]
-    	},
-	  	{
-    		"name": "convert2fahrenheit",
-    		"description": "Convert C to F",
-    		"enabledByDefault": true,
-    		"utterances": [
-    			"What is {15:=>Number} degrees {celsius:=>celsius} in fahrenheit please",
-    			"Convert {465:=>Number} degrees {celsius:=>celsius} to fahrenheit",
-			  	"Convert {65:=>Number} degrees {celsius:=>celsius}",
-			  	"Convert {73:=>Number} degrees {C:=>celsius} please",
-			  	"Convert {73:=>Number} degrees {C:=>celsius} to F ",
-			  	"Convert {93:=>Number} {C:=>celsius} ",
-			  	"Convert {108:=>Number} {C:=>celsius} to Fahrenheit",
-			  	"Convert {73:=>Number} {C:=>celsius} to F",
-    			"What's {30:=>Number} degrees {celsius:=>celsius} in fahrenheit please",
-    			"please convert {35:=>Number} degrees {celsius:=>celsius} into fahrenheit",
-    			"{30:=>Number} {celsius:=>celsius} is what in fahrenheit please",
-    			"what is {17:=>Number} degrees {celsius:=>celsius} in fahrenheit please",
-			  	"What is {250:=>Number} degrees {C:=>celsius} in F",
-    			"if it's {99:=>Number} degrees {celsius:=>celsius} outside what is that in fahrenheit"
-    		],
-    		"slots": [
-    			{
-    		  		"name": "celsius",
-    		  		"description": null,
-    		  		"required": false,
-    		  		"type": "Celsius",
-    		  		"missingQuestion": ""
-    			},
-			  	{
-    		  		"name": "Number",
-    		  		"description": null,
-    		  		"required": false,
-    		  		"type": "snips/number",
-    		  		"missingQuestion": ""
-    			}
+		},
+		{
+			"name": "Fahrenheit",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "Fahrenheit",
+					"synonyms": [
+						"F"
+					]
+				}
 			]
-    	},
-	  	{
-    		"name": "informGasMark",
-    		"description": "say what the gas mark of the requested temperature is ",
-    		"enabledByDefault": true,
-    		"utterances": [
-    			"What is the oven {gas mark:=>gasMark} for {10:=>Number} degrees {fahrenheit:=>fahrenheit} please",
-    			"Convert {425:=>Number} {fahrenheit:=>fahrenheit} to {gas mark:=>gasMark} please",
-    			"What's {350:=>Number} {celsius:=>celsius} in oven {Gas Mark:=>gasMark} thanks ",
-			  	"Convert {32:=>Number} C to {gas Mark:=>gasMark} please",
-    			"Please convert {280:=>Number} degrees {celsius:=>celsius} into {gas:=>gasMark}",
-    			"{304:=>Number} {fahrenheit:=>fahrenheit} is what in {gas mark:=>gasMark}",
-    			"what is {170:=>Number} degrees {fahrenheit:=>fahrenheit} in {gas:=>gasMark} please",
-			  	"What is {250:=>Number} {F:=>fahrenheit} in {gas mark:=>gasMark}",
-			  	"What is {140:=>Number} {C:=>celsius} in {gas mark:=>gasMark}",
-    			"what {gas Mark:=>gasMark} is {99:=>Number} degrees {fahrenheit:=>fahrenheit}",
-			  	"what {gas mark:=>gasMark} is {425:=>Number} degrees {celsius:=>celsius}"
+		},
+		{
+			"name": "GasMark",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "Gas",
+					"synonyms": [
+						"Gas Mark",
+						"gas mark",
+						"gas Mark"
+					]
+				}
+			]
+		}
+	],
+	"intents": [
+		{
+			"name": "convert2Celsius",
+			"description": "Convert F to C",
+			"enabledByDefault": true,
+			"utterances": [
+				"What is {10:=>Number} degrees {fahrenheit:=>fahrenheit} in celsius please",
+				"Convert {425:=>Number} {fahrenheit:=>fahrenheit} to celsius",
+				"Convert {25:=>Number} degrees {fahrenheit:=>fahrenheit}",
+				"Convert {97:=>Number} {f:=>fahrenheit}",
+				"Convert {81:=>Number} degrees {f:=>fahrenheit} please",
+				"Convert {73:=>Number} degrees {F:=>fahrenheit} to C ",
+				"Convert {93:=>Number} {f:=>fahrenheit} ",
+				"Convert {108:=>Number} {f:=>fahrenheit} to celsius",
+				"Convert {73:=>Number} {f:=>fahrenheit} to c",
+				"What's {350:=>Number} {fahrenheit:=>fahrenheit} in celsius",
+				"Please convert {280:=>Number} degrees {fahrenheit:=>fahrenheit} into celsius",
+				"{30:=>Number} {fahrenheit:=>fahrenheit} is what in celsius",
+				"what is {170:=>Number} degrees {fahrenheit:=>fahrenheit} in celsius please",
+				"What is {250:=>Number} degrees {F:=>fahrenheit} in C",
+				"if it's {99:=>Number} degrees {fahrenheit:=>fahrenheit} outside what is that in celsius"
 			],
-    		"slots": [
-    			{
-    		  		"name": "fahrenheit",
-    		  		"description": null,
-    		  		"required": false,
-    		  		"type": "Fahrenheit",
-    		  		"missingQuestion": ""
-    			},
-			  	{
-    		  		"name": "Number",
-    		  		"description": null,
-    		  		"required": false,
-    		  		"type": "snips/number",
-    		  		"missingQuestion": ""
-    			},
-			  	{
-    		  		"name": "celsius",
-    		  		"description": null,
-    		  		"required": false,
-    		  		"type": "Celsius",
-    		  		"missingQuestion": ""
-    			},
-			  	{
-    		  		"name": "gasMark",
-    		  		"description": null,
-    		  		"required": false,
-    		  		"type": "GasMark",
-    		  		"missingQuestion": ""
-    			}
+			"slots": [
+				{
+					"name": "fahrenheit",
+					"description": null,
+					"required": false,
+					"type": "Fahrenheit",
+					"missingQuestion": ""
+				},
+				{
+					"name": "Number",
+					"description": null,
+					"required": false,
+					"type": "snips/number",
+					"missingQuestion": ""
+				}
 			]
-    	}
+		},
+		{
+			"name": "convert2fahrenheit",
+			"description": "Convert C to F",
+			"enabledByDefault": true,
+			"utterances": [
+				"What is {15:=>Number} degrees {celsius:=>celsius} in fahrenheit please",
+				"Convert {465:=>Number} degrees {celsius:=>celsius} to fahrenheit",
+				"Convert {65:=>Number} degrees {celsius:=>celsius}",
+				"Convert {73:=>Number} degrees {C:=>celsius} please",
+				"Convert {73:=>Number} degrees {C:=>celsius} to F ",
+				"Convert {93:=>Number} {C:=>celsius} ",
+				"Convert {108:=>Number} {C:=>celsius} to Fahrenheit",
+				"Convert {73:=>Number} {C:=>celsius} to F",
+				"What's {30:=>Number} degrees {celsius:=>celsius} in fahrenheit please",
+				"please convert {35:=>Number} degrees {celsius:=>celsius} into fahrenheit",
+				"{30:=>Number} {celsius:=>celsius} is what in fahrenheit please",
+				"what is {17:=>Number} degrees {celsius:=>celsius} in fahrenheit please",
+				"What is {250:=>Number} degrees {C:=>celsius} in F",
+				"if it's {99:=>Number} degrees {celsius:=>celsius} outside what is that in fahrenheit"
+			],
+			"slots": [
+				{
+					"name": "celsius",
+					"description": null,
+					"required": false,
+					"type": "Celsius",
+					"missingQuestion": ""
+				},
+				{
+					"name": "Number",
+					"description": null,
+					"required": false,
+					"type": "snips/number",
+					"missingQuestion": ""
+				}
+			]
+		},
+		{
+			"name": "informGasMark",
+			"description": "say what the gas mark of the requested temperature is ",
+			"enabledByDefault": true,
+			"utterances": [
+				"What is the oven {gas mark:=>gasMark} for {10:=>Number} degrees {fahrenheit:=>fahrenheit} please",
+				"Convert {425:=>Number} {fahrenheit:=>fahrenheit} to {gas mark:=>gasMark} please",
+				"What's {350:=>Number} {celsius:=>celsius} in oven {Gas Mark:=>gasMark} thanks ",
+				"Convert {32:=>Number} C to {gas Mark:=>gasMark} please",
+				"Please convert {280:=>Number} degrees {celsius:=>celsius} into {gas:=>gasMark}",
+				"{304:=>Number} {fahrenheit:=>fahrenheit} is what in {gas mark:=>gasMark}",
+				"what is {170:=>Number} degrees {fahrenheit:=>fahrenheit} in {gas:=>gasMark} please",
+				"What is {250:=>Number} {F:=>fahrenheit} in {gas mark:=>gasMark}",
+				"What is {140:=>Number} {C:=>celsius} in {gas mark:=>gasMark}",
+				"what {gas Mark:=>gasMark} is {99:=>Number} degrees {fahrenheit:=>fahrenheit}",
+				"what {gas mark:=>gasMark} is {425:=>Number} degrees {celsius:=>celsius}"
+			],
+			"slots": [
+				{
+					"name": "fahrenheit",
+					"description": null,
+					"required": false,
+					"type": "Fahrenheit",
+					"missingQuestion": ""
+				},
+				{
+					"name": "Number",
+					"description": null,
+					"required": false,
+					"type": "snips/number",
+					"missingQuestion": ""
+				},
+				{
+					"name": "celsius",
+					"description": null,
+					"required": false,
+					"type": "Celsius",
+					"missingQuestion": ""
+				},
+				{
+					"name": "gasMark",
+					"description": null,
+					"required": false,
+					"type": "GasMark",
+					"missingQuestion": ""
+				}
+			]
+		}
 	]
 }
