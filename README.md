@@ -7,7 +7,7 @@ Convert temperature between F and C and also output the oven gas mark
 - Author: LazzaAU
 - Maintainers: 
     - Psycho, Phillipp
-- Alice minimum Version: 1.0.0-b1
+- Alice minimum Version: 1.0.0-a6
 - Languages:
     en
 
