@@ -16,25 +16,33 @@ class OvenTemperatureConversion(AliceSkill):
 	@IntentHandler('convert2Celsius')
 	def f2cIntent(self, session: DialogSession, **_kwargs):
 		# Check if a temperature number was provided
-		# TODO ask for the number
 		if 'Number' not in session.slotsAsObjects:
-			self.endDialog(session.sessionId, self.randomTalk(text='respondNoIdea'))
-			return
+			self.continueDialog(
+				sessionId=session.sessionId,
+				text=self.randomTalk('respondNoIdea'),
+				currentDialogState=session.currentState
+			)
 
-		# Grab the requested temperature and send it to TempConversion class for converting
-		spokenTemperature = session.slotValue('Number')
-		self.endDialog(session.sessionId, self.randomTalk(text='respondCelsius', replace=[self.convertToCelsius(spokenTemperature)]))
+		# Grab the requested temperature and convert it to C
+		if 'Number' in session.slotsAsObjects:
+			spokenTemperature = session.slotValue('Number')
+			self.endDialog(session.sessionId, self.randomTalk(text='respondCelsius', replace=[self.convertToCelsius(spokenTemperature)]))
 
 
 	@IntentHandler('convert2fahrenheit')
 	def c2fIntent(self, session: DialogSession, **_kwargs):
-		# TODO ask for the number
+		# Check if a temperature number was provided
 		if 'Number' not in session.slotsAsObjects:
-			self.endDialog(session.sessionId, self.randomTalk(text='respondNoIdea'))
-			return
+			self.continueDialog(
+				sessionId=session.sessionId,
+				text=self.randomTalk('respondNoIdea'),
+				currentDialogState=session.currentState
+			)
 
-		spokenTemperature = session.slotValue('Number')
-		self.endDialog(session.sessionId, self.randomTalk(text='respondFahrenheit', replace=[self.convertToFahrenheit(spokenTemperature)]))
+		# Grab the requested temperature and convert it to F
+		if 'Number' in session.slotsAsObjects:
+			spokenTemperature = session.slotValue('Number')
+			self.endDialog(session.sessionId, self.randomTalk(text='respondFahrenheit', replace=[self.convertToFahrenheit(spokenTemperature)]))
 
 
 	@IntentHandler('informGasMark')
