@@ -20,7 +20,7 @@ class OvenTemperatureConversion(AliceSkill):
 			self.continueDialog(
 				sessionId=session.sessionId,
 				text=self.randomTalk('respondNoIdea'),
-				currentDialogState=session.currentState
+				intentFilter=['Number']
 			)
 
 		# Grab the requested temperature and convert it to C
@@ -36,7 +36,7 @@ class OvenTemperatureConversion(AliceSkill):
 			self.continueDialog(
 				sessionId=session.sessionId,
 				text=self.randomTalk('respondNoIdea'),
-				currentDialogState=session.currentState
+				intentFilter=['Number']
 			)
 
 		# Grab the requested temperature and convert it to F
