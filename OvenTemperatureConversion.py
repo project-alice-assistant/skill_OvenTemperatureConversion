@@ -20,9 +20,11 @@ class OvenTemperatureConversion(AliceSkill):
 		else:
 			self.readyToConvert2C(session)
 
+
 	def readyToConvert2C(self, session: DialogSession):
 		spokenTemperature = session.slotValue('Number')
 		self.endDialog(session.sessionId, self.randomTalk(text='respondCelsius', replace=[self.convertToCelsius(spokenTemperature)]))
+
 
 	def askForNumberC(self, session: DialogSession):
 		self.continueDialog(
@@ -31,6 +33,7 @@ class OvenTemperatureConversion(AliceSkill):
 			intentFilter=['convert2Celsius'],
 			currentDialogState='askingToConvertToC'
 		)
+
 
 	@IntentHandler(intent='convert2Celsius', requiredState='askingToConvertToC', isProtected=True)
 	def f2cIntent(self, session):
@@ -44,6 +47,7 @@ class OvenTemperatureConversion(AliceSkill):
 		else:
 			self.readyToConvert2F(session)
 
+
 	def askForNumberF(self, session: DialogSession):
 		self.continueDialog(
 			sessionId=session.sessionId,
@@ -51,13 +55,15 @@ class OvenTemperatureConversion(AliceSkill):
 			intentFilter=['convert2Celsius'],
 			currentDialogState='askingToConvertToC'
 		)
+
+
 	def readyToConvert2F(self, session: DialogSession):
 		# Grab the requested temperature and convert it to F
-			spokenTemperature = session.slotValue('Number')
-			self.endDialog(session.sessionId, self.randomTalk(text='respondFahrenheit', replace=[self.convertToFahrenheit(spokenTemperature)]))
+		spokenTemperature = session.slotValue('Number')
+		self.endDialog(session.sessionId, self.randomTalk(text='respondFahrenheit', replace=[self.convertToFahrenheit(spokenTemperature)]))
 
 
-	@IntentHandler(intent = 'convert2fahrenheit', requiredState = 'askingToConvertToF', isProtected = True)
+	@IntentHandler(intent='convert2fahrenheit', requiredState='askingToConvertToF', isProtected=True)
 	def c2fIntent(self, session: DialogSession, **_kwargs):
 		# Check if a temperature number was provided
 		self.letsconvert2F(session)
