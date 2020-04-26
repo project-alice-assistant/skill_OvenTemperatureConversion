@@ -1,7 +1,7 @@
 {
   "respondFahrenheit": [
 	"In fahrenheit that would be {} degrees",
-	"That converts to {} degress fahrenheit",
+	"That converts to {} degrees fahrenheit",
 	"Temperature in fahrenheit would be {} degrees",
 	"That's equivalent to {} degrees fahrenheit",
 	"{} degrees F is the answer your looking for ",
@@ -25,8 +25,8 @@
 	"Dial a pizza number is 0 800. Umm whoops sorry. You're after gas mark {}. bon appetit"
   ],
   "respondNoIdea": [
-	"Sorry but i didn't hear a number",
-	"Try again but make sure you say a number this time"
+	"Sorry but i didn't hear a number, please try again but include the temperature and if its celsius or fahrenheit",
+	"Try again but make sure you say a number and temperature type. Example. 50 degrees Celsius or 90 degrees fahrenheit"
 
   ],
   "respondOutOfRange": [
