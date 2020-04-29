@@ -13,6 +13,7 @@ class OvenTemperatureConversion(AliceSkill):
 	"""
 
 
+	# Convert farenheit to Celsius
 	@IntentHandler('convert2Celsius')
 	def letsconvert2C(self, session: DialogSession):
 		if 'Number' not in session.slotsAsObjects:
@@ -21,11 +22,13 @@ class OvenTemperatureConversion(AliceSkill):
 			self.readyToConvert2C(session)
 
 
+	# Do this if Number was specified
 	def readyToConvert2C(self, session: DialogSession):
 		spokenTemperature = session.slotValue('Number')
 		self.endDialog(session.sessionId, self.randomTalk(text='respondCelsius', replace=[self.convertToCelsius(spokenTemperature)]))
 
 
+	# say this if no number was specified
 	def askForNumberC(self, session: DialogSession):
 		self.continueDialog(
 			sessionId=session.sessionId,
@@ -35,11 +38,13 @@ class OvenTemperatureConversion(AliceSkill):
 		)
 
 
+	# do this if user was asked to say a number
 	@IntentHandler(intent='convert2Celsius', requiredState='askingToConvertToC', isProtected=True)
 	def f2cIntent(self, session):
 		self.letsconvert2C(session)
 
 
+	# and now capture converting from C to Farenheit
 	@IntentHandler('convert2fahrenheit')
 	def letsconvert2F(self, session: DialogSession):
 		if 'Number' not in session.slotsAsObjects:
@@ -48,24 +53,25 @@ class OvenTemperatureConversion(AliceSkill):
 			self.readyToConvert2F(session)
 
 
-	def askForNumberF(self, session: DialogSession):
-		self.continueDialog(
-			sessionId=session.sessionId,
-			text=self.randomTalk(text='respondNoIdea'),
-			intentFilter=['convert2Celsius'],
-			currentDialogState='askingToConvertToC'
-		)
-
-
+	# # Grab the requested temperature and convert it to F
 	def readyToConvert2F(self, session: DialogSession):
-		# Grab the requested temperature and convert it to F
 		spokenTemperature = session.slotValue('Number')
 		self.endDialog(session.sessionId, self.randomTalk(text='respondFahrenheit', replace=[self.convertToFahrenheit(spokenTemperature)]))
 
 
+	# Say this if no number was specified
+	def askForNumberF(self, session: DialogSession):
+		self.continueDialog(
+			sessionId=session.sessionId,
+			text=self.randomTalk(text='respondNoIdea'),
+			intentFilter=['convert2farenheit'],
+			currentDialogState='askingToConvertToF'
+		)
+
+
+	# do this if a number was finally specified
 	@IntentHandler(intent='convert2fahrenheit', requiredState='askingToConvertToF', isProtected=True)
 	def c2fIntent(self, session: DialogSession, **_kwargs):
-		# Check if a temperature number was provided
 		self.letsconvert2F(session)
 
 
