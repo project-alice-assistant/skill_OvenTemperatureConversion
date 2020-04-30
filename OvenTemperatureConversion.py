@@ -5,7 +5,7 @@ from core.util.Decorators import IntentHandler
 
 class OvenTemperatureConversion(AliceSkill):
 	"""
-	Author: LazzaAU
+	Author: Lazza
 	Description: Convert temperature between F and C and also inform of what
 	oven Gas mark to use, The first two Intent handlers deal with converting
 	between the two temperature types C and F.

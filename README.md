@@ -4,7 +4,7 @@
 
 Convert temperature between F and C and also output the oven gas mark
 
-- Author: LazzaAU
+- Author: Lazza
 - Maintainers: 
     - Psycho, Phillipp
 - Alice minimum Version: 1.0.0-a6
