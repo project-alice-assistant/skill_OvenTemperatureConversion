@@ -70,14 +70,12 @@
 			"slots": [
 				{
 					"name": "fahrenheit",
-					"description": null,
 					"required": false,
 					"type": "Fahrenheit",
 					"missingQuestion": ""
 				},
 				{
 					"name": "Number",
-					"description": null,
 					"required": false,
 					"type": "snips/number",
 					"missingQuestion": ""
@@ -106,14 +104,12 @@
 			"slots": [
 				{
 					"name": "celsius",
-					"description": null,
 					"required": false,
 					"type": "Celsius",
 					"missingQuestion": ""
 				},
 				{
 					"name": "Number",
-					"description": null,
 					"required": false,
 					"type": "snips/number",
 					"missingQuestion": ""
@@ -139,28 +135,24 @@
 			"slots": [
 				{
 					"name": "fahrenheit",
-					"description": null,
 					"required": false,
 					"type": "Fahrenheit",
 					"missingQuestion": ""
 				},
 				{
 					"name": "Number",
-					"description": null,
 					"required": false,
 					"type": "snips/number",
 					"missingQuestion": ""
 				},
 				{
 					"name": "celsius",
-					"description": null,
 					"required": false,
 					"type": "Celsius",
 					"missingQuestion": ""
 				},
 				{
 					"name": "gasMark",
-					"description": null,
 					"required": false,
 					"type": "GasMark",
 					"missingQuestion": ""
