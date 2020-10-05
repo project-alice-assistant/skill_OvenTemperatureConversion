@@ -35,7 +35,7 @@ class OvenTemperatureConversion(AliceSkill):
 		)
 
 
-	@IntentHandler(intent='convert2Celsius', requiredState='askingToConvertToC', isProtected=True)
+	@IntentHandler(intent='convert2Celsius', requiredState='askingToConvertToC')
 	def f2cIntent(self, session):
 		self.letsconvert2C(session)
 
@@ -63,7 +63,7 @@ class OvenTemperatureConversion(AliceSkill):
 		self.endDialog(session.sessionId, self.randomTalk(text='respondFahrenheit', replace=[self.convertToFahrenheit(spokenTemperature)]))
 
 
-	@IntentHandler(intent='convert2fahrenheit', requiredState='askingToConvertToF', isProtected=True)
+	@IntentHandler(intent='convert2fahrenheit', requiredState='askingToConvertToF')
 	def c2fIntent(self, session: DialogSession, **_kwargs):
 		# Check if a temperature number was provided
 		self.letsconvert2F(session)
