@@ -1,6 +1,6 @@
 {
     "name": "OvenTemperatureConversion",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "icon": "fas fa-temperature-high",
     "category": "information",
     "author": "LazzaAU",
