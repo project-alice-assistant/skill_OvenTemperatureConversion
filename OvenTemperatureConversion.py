@@ -13,60 +13,37 @@ class OvenTemperatureConversion(AliceSkill):
 	"""
 
 
+	# Convert from fahrenheit to celcius
 	@IntentHandler('convert2Celsius')
-	def letsconvert2C(self, session: DialogSession):
+	def convertingToCelciusIntent(self, session: DialogSession):
 		if 'Number' not in session.slotsAsObjects:
-			self.askForNumberC(session)
+			self.askToRepeatWithNumber(session, intentFilta='convert2Celsius')
 		else:
-			self.readyToConvert2C(session)
+			self.readyToConvert(session, temperatureType='Celsius', converter=self.convertToCelsius)
 
 
-	def readyToConvert2C(self, session: DialogSession):
-		spokenTemperature = session.slotValue('Number')
-		self.endDialog(session.sessionId, self.randomTalk(text='respondCelsius', replace=[self.convertToCelsius(spokenTemperature)]))
-
-
-	def askForNumberC(self, session: DialogSession):
-		self.continueDialog(
-			sessionId=session.sessionId,
-			text=self.randomTalk(text='respondNoIdea'),
-			intentFilter=['convert2Celsius'],
-			currentDialogState='askingToConvertToC'
-		)
-
-
-	@IntentHandler(intent='convert2Celsius', requiredState='askingToConvertToC')
-	def f2cIntent(self, session):
-		self.letsconvert2C(session)
-
-
+	# Converting from celcius to fahrenheit
 	@IntentHandler('convert2fahrenheit')
-	def letsconvert2F(self, session: DialogSession):
+	def convertingToFahrenheitIntent(self, session: DialogSession):
 		if 'Number' not in session.slotsAsObjects:
-			self.askForNumberF(session)
+			self.askToRepeatWithNumber(session, intentFilta='convert2fahrenheit')
 		else:
-			self.readyToConvert2F(session)
+			self.readyToConvert(session, temperatureType='Fahrenheit', converter=self.convertToFahrenheit)
 
 
-	def askForNumberF(self, session: DialogSession):
+	# Convert and say the result
+	def readyToConvert(self, session: DialogSession, converter, temperatureType: str):
+		spokenTemperature = session.slotValue('Number')
+		self.endDialog(session.sessionId, self.randomTalk(text='respondTemperature', replace=[converter(spokenTemperature), temperatureType]))
+
+
+	# ask user to repeat what they said but with a number
+	def askToRepeatWithNumber(self, session: DialogSession, intentFilta: str):
 		self.continueDialog(
 			sessionId=session.sessionId,
 			text=self.randomTalk(text='respondNoIdea'),
-			intentFilter=['convert2Celsius'],
-			currentDialogState='askingToConvertToC'
+			intentFilter=[intentFilta]
 		)
-
-
-	def readyToConvert2F(self, session: DialogSession):
-		# Grab the requested temperature and convert it to F
-		spokenTemperature = session.slotValue('Number')
-		self.endDialog(session.sessionId, self.randomTalk(text='respondFahrenheit', replace=[self.convertToFahrenheit(spokenTemperature)]))
-
-
-	@IntentHandler(intent='convert2fahrenheit', requiredState='askingToConvertToF')
-	def c2fIntent(self, session: DialogSession, **_kwargs):
-		# Check if a temperature number was provided
-		self.letsconvert2F(session)
 
 
 	@IntentHandler('informGasMark')
