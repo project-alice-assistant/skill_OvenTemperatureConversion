@@ -1,7 +1,5 @@
 {
 	"skill": "OvenTemperatureConversion",
-	"icon": "time",
-	"description": "Convert temperature between F and C and also out the oven gas mark",
 	"slotTypes": [
 		{
 			"name": "Celsius",
@@ -51,7 +49,6 @@
 	"intents": [
 		{
 			"name": "convert2Celsius",
-			"description": "Convert F to C",
 			"enabledByDefault": true,
 			"utterances": [
 				"What is {10:=>Number} degrees {fahrenheit:=>fahrenheit} in celsius please",
@@ -73,14 +70,12 @@
 			"slots": [
 				{
 					"name": "fahrenheit",
-					"description": null,
 					"required": false,
 					"type": "Fahrenheit",
 					"missingQuestion": ""
 				},
 				{
 					"name": "Number",
-					"description": null,
 					"required": false,
 					"type": "snips/number",
 					"missingQuestion": ""
@@ -89,7 +84,6 @@
 		},
 		{
 			"name": "convert2fahrenheit",
-			"description": "Convert C to F",
 			"enabledByDefault": true,
 			"utterances": [
 				"What is {15:=>Number} degrees {celsius:=>celsius} in fahrenheit please",
@@ -110,14 +104,12 @@
 			"slots": [
 				{
 					"name": "celsius",
-					"description": null,
 					"required": false,
 					"type": "Celsius",
 					"missingQuestion": ""
 				},
 				{
 					"name": "Number",
-					"description": null,
 					"required": false,
 					"type": "snips/number",
 					"missingQuestion": ""
@@ -126,7 +118,6 @@
 		},
 		{
 			"name": "informGasMark",
-			"description": "say what the gas mark of the requested temperature is ",
 			"enabledByDefault": true,
 			"utterances": [
 				"What is the oven {gas mark:=>gasMark} for {10:=>Number} degrees {fahrenheit:=>fahrenheit} please",
@@ -144,28 +135,24 @@
 			"slots": [
 				{
 					"name": "fahrenheit",
-					"description": null,
 					"required": false,
 					"type": "Fahrenheit",
 					"missingQuestion": ""
 				},
 				{
 					"name": "Number",
-					"description": null,
 					"required": false,
 					"type": "snips/number",
 					"missingQuestion": ""
 				},
 				{
 					"name": "celsius",
-					"description": null,
 					"required": false,
 					"type": "Celsius",
 					"missingQuestion": ""
 				},
 				{
 					"name": "gasMark",
-					"description": null,
 					"required": false,
 					"type": "GasMark",
 					"missingQuestion": ""
