@@ -2,7 +2,11 @@ from typing import Any
 from unittest import TestCase, mock
 from unittest.mock import MagicMock, PropertyMock
 
-from PublishedSkills.OvenTemperatureConversion.OvenTemperatureConversion import OvenTemperatureConversion
+try:
+	from PublishedSkills.OvenTemperatureConversion.OvenTemperatureConversion import OvenTemperatureConversion
+except:
+	# noinspection PyUnresolvedReferences
+	from OvenTemperatureConversion import OvenTemperatureConversion
 
 
 class TestOvenTemperatureConversion(TestCase):
