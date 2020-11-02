@@ -5,7 +5,7 @@ from core.util.Decorators import IntentHandler
 
 class OvenTemperatureConversion(AliceSkill):
 	"""
-	Author: LazzaAU
+	Author: Lazza
 	Description: Convert temperature between F and C and also inform of what
 	oven Gas mark to use, The first two Intent handlers deal with converting
 	between the two temperature types C and F.
@@ -20,7 +20,8 @@ class OvenTemperatureConversion(AliceSkill):
 			self.askToRepeatWithNumber(session, intentFilta='convert2Celsius')
 		else:
 			self.readyToConvert(session, temperatureType='Celsius', converter=self.convertToCelsius)
-
+		# Return value for unit testing
+		return session.slotValue('Number')
 
 	# Converting from celcius to fahrenheit
 	@IntentHandler('convert2fahrenheit')
@@ -29,11 +30,12 @@ class OvenTemperatureConversion(AliceSkill):
 			self.askToRepeatWithNumber(session, intentFilta='convert2fahrenheit')
 		else:
 			self.readyToConvert(session, temperatureType='Fahrenheit', converter=self.convertToFahrenheit)
-
+		# Return value for unit testing
+		return session.slotValue('Number')
 
 	# Convert and say the result
 	def readyToConvert(self, session: DialogSession, converter, temperatureType: str):
-		spokenTemperature = session.slotValue('Number')
+		spokenTemperature: int = session.slotValue('Number')
 		self.endDialog(session.sessionId, self.randomTalk(text='respondTemperature', replace=[converter(spokenTemperature), temperatureType]))
 
 
@@ -87,7 +89,8 @@ class OvenTemperatureConversion(AliceSkill):
 			return
 
 		self.endDialog(session.sessionId, self.randomTalk(text='respondGasMark', replace=[correctGasMark]))
-
+		# return local var for unit testing reasons
+		return correctGasMark
 
 	@staticmethod
 	def convertToFahrenheit(temperature: int) -> int:
